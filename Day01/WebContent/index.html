@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="game.js"></script>
+	<script>
+		var game = new GuessingGame();
+		function play(){
+			var guess = parseInt(document.getElementById("guesstext").value);
+			game.play(guess);
+			document.getElementById("messageh1").innerHTML = game.getMessage();
+			document.getElementById("attemptsh2").innerHTML = "Attempts: " + game.getAttempts();
+		}
+	</script>
+</head>
+<body>
+	Enter your guess<input type="text" id="guesstext">
+	<input type="button" value="Guess" onclick="play()">
+	<h1 id="messageh1"></h1>
+	<h2 id="attemptsh2"></h2>
+</body>
+</html>
