@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="jquery-1.7.2.js"></script>
+	<script>
+		function buttonClicked(){
+			$("#octet1,#octet2,#octet3,#octet4").attr("disabled","disabled");
+		}
+		function octetKeyEntered(){
+			if($(this).val().length == 3)
+				$(this).next().focus();
+		}
+		$().ready(function(){
+			$("#octet1,#octet2,#octet3,#octet4").css("width","40").attr("maxlength","3");
+			$("#octet1").focus();
+			
+			$("#octet1,#octet2,#octet3,#octet4").on("keyup",octetKeyEntered);
+			$("#clickbutton").on("click",buttonClicked);
+		});
+	</script>
+</head>
+<body>
+	Ip address: 
+	<input type="text" id="octet1">.
+	<input type="text" id="octet2">.
+	<input type="text" id="octet3">.
+	<input type="text" id="octet4">
+	<input type="button" value="Click" id="clickbutton">
+</body>
+</html>
