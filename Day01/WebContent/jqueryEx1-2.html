@@ -10,9 +10,9 @@
 			if($(this).val().length == 3)
 				$(this).next().focus();
 		}
-		$().ready(function(){
-			$(":text").css("width","40").attr("maxlength","3");
-			$("#octet1").focus();
+		jQuery().ready(function(){
+			jQuery(":text").css("width","40").attr("maxlength","3");
+			jQuery("#octet1").focus();
 			
 			$(":text").on("keyup",octetKeyEntered);
 			$("#clickbutton").on("click",buttonClicked);

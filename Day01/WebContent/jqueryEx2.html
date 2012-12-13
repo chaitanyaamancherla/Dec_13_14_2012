@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		HTMLHeadingElement.prototype.html = function(){
+			return this.innerHTML;
+		}
+		function $(){
+			if(arguments.length == 1){
+				var id = arguments[0].split("#")[1];
+				return document.getElementById(id);
+			}
+			else{
+				return {
+					ready : function(init){
+						init();
+					}
+		       };
+			}
+		}
+		window.onload = function(){
+			$().ready(function(){
+				alert("Hello World");
+				alert($("#messageh1").html());
+			});
+		};		
+	</script>
+</head>
+<body>
+	<h1 id="messageh1">Hello</h1>
+</body>
+</html>
