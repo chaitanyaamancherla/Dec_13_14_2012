@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="jquery-1.7.2.js"></script>
+	<script src="game.js"></script>
+	<script>
+		var game = new GuessingGame();
+		function play(){
+			var guess = parseInt($("#guesstext").val());
+			game.play(guess);
+			$("#messageh1").html(game.getMessage());
+			$("#attemptsh2").html("Attempts: " + game.getAttempts());
+		}
+		function init(){
+			$("#guessbutton").on("click",play);
+		}
+		$().ready(init);
+	</script>
+</head>
+<body>
+	Enter your guess<input type="text" id="guesstext">
+	<input type="button" value="Guess" id="guessbutton">
+	<h1 id="messageh1"></h1>
+	<h2 id="attemptsh2"></h2>
+</body>
+</html>
