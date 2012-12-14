@@ -2,8 +2,21 @@
 <head>
 	<script src="jquery-1.7.2.js"></script>
 	<script>
+		function friday(response){
+			$("#capitalh1").html(response.capital);
+			$("#continenth1").html(response.continent);		
+		}
 		function getCapital(){
 			var country = $("#countrytext").val();
+			$.ajax({
+				//url : "country.jsp?country=" + country,
+				url : "http://127.0.0.1:9090/",
+				dataType : "jsonp",
+				jsonpCallback : "friday",
+				success : function(response){
+					console.log(response);
+				}		
+			});
 		}
 	</script>
 </head>
