@@ -1,0 +1,22 @@
+<html>
+<head>
+	<script src="jquery-1.7.2.js"></script>
+	<script>
+		function getCapital(){
+			var country = $("#countrytext").val();
+			$("#capitalh1").load("country.jsp?country=" + country);
+			/* $.ajax({
+				url : "country.jsp?country=" + country,
+				success : function(response){
+					$("#capitalh1").html(response);
+				}
+			}); */				
+		}
+	</script>
+</head>
+<body>
+	Country <input type="text" id="countrytext">
+	<input type="button" value="Get capital" onclick="getCapital();">
+	<h1 id="capitalh1"></h1>
+</body>
+</html>
