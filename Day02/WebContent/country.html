@@ -1,0 +1,37 @@
+<html>
+<head>
+	<script src="jquery-1.7.2.js"></script>
+	<script>
+		var xhr;
+		function getCapital(){
+			if(window.ActiveXObject)//IE
+				xhr = new ActiveXObject("Microsoft.XMLHTTP");
+			else
+				xhr = new XMLHttpRequest();
+			console.log(xhr);
+			var country = $("#countrytext").val();
+			var url = "country.jsp?country=" + country;
+			xhr.open("POST",url);
+			xhr.onreadystatechange = displayCapital;
+			xhr.send();
+			$("#messageh2").show();
+		}
+		function displayCapital(){
+			if(xhr.readyState == 4){
+				$("#messageh2").hide();
+				var response = xhr.responseText;
+				$("#capitalh1").html(response);
+			}
+			else{
+				$("#messageh2").show();
+			}
+		}
+	</script>
+</head>
+<body>
+	Country <input type="text" id="countrytext">
+	<input type="button" value="Get capital" onclick="getCapital();">
+	<h1 id="capitalh1"></h1>
+	<h2 id="messageh2" style="display:none;">Loading...</h2>
+</body>
+</html>
